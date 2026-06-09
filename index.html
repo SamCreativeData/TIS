@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This Infernal Studio™</title>
+    <meta name="description" content="This Infernal Studio™ — a dark creative studio producing horror-comedy digital properties, audio, and collectibles." />
+    <meta property="og:title" content="This Infernal Studio™" />
+    <meta property="og:description" content="A dark creative studio producing horror-comedy digital properties, audio, and collectibles." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thisinfernal.studio" />
+    <meta property="og:image" content="/TIS_logow.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="This Infernal Studio™" />
+    <meta name="twitter:description" content="A dark creative studio producing horror-comedy digital properties, audio, and collectibles." />
+    <link rel="icon" type="image/png" href="/TIS_logow.png" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background: #0d0d0d;
+        color: #fff;
+        font-family: 'Courier New', Courier, monospace;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 80px;
+      }
+
+      /* ── Wordmark ── */
+      .wordmark {
+        margin-bottom: clamp(3rem, 8vh, 6rem);
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+      }
+
+      /* ── Logo row ── */
+      .logo-row {
+        display: flex;
+        align-items: stretch;
+        width: min(900px, 90vw);
+      }
+
+      /* ── Cells ── */
+      .cell {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(1.2rem, 3vh, 2rem);
+        padding: clamp(1rem, 3vw, 2rem);
+        cursor: default;
+        opacity: 0;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      a.cell { cursor: pointer; }
+
+      .cell:nth-child(1) { animation: fadeIn 1s ease 0.8s forwards; }
+      .cell:nth-child(3) { animation: fadeIn 1s ease 1.0s forwards; }
+      .cell:nth-child(5) { animation: fadeIn 1s ease 1.2s forwards; }
+
+      .logo-wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: clamp(100px, 18vw, 170px);
+      }
+
+      .logo-wrap img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        opacity: 0.55;
+        mix-blend-mode: screen;
+        transition: transform 300ms ease, opacity 300ms ease;
+        display: block;
+      }
+
+      a.cell:hover .logo-wrap img {
+        transform: scale(1.04);
+        opacity: 1;
+      }
+
+      .cell:nth-child(3) .logo-wrap img { opacity: 0.2; }
+
+      .label {
+        letter-spacing: 0.3em;
+        font-size: clamp(0.55rem, 0.9vw, 0.7rem);
+        font-weight: 400;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.45);
+      }
+
+      /* ── Dividers ── */
+      .divider {
+        width: 1px;
+        align-self: stretch;
+        background: rgba(255,255,255,0.18);
+        transition: opacity 300ms ease;
+        flex-shrink: 0;
+      }
+
+      .divider.dim { opacity: 0.2; }
+
+      /* ── Footer ── */
+      footer {
+        position: fixed;
+        bottom: 2rem;
+        left: 0; right: 0;
+        text-align: center;
+        font-size: clamp(0.45rem, 0.75vw, 0.6rem);
+        letter-spacing: 0.12em;
+        color: rgba(255,255,255,0.22);
+      }
+
+      /* ── Keyframes ── */
+      @keyframes fadeIn {
+        to { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="wordmark">
+      <img src="/TIS_logow.png" alt="This Infernal Studio" style="width:260px;display:block;mix-blend-mode:screen;" />
+    </div>
+
+    <div class="logo-row">
+
+      <!-- Cell 1 — This Infernal Life -->
+      <a class="cell" data-index="0" href="https://til-ljn3.bolt.host" target="_blank" rel="noopener noreferrer">
+        <div class="logo-wrap">
+          <img src="/full_logo_W.png" alt="This Infernal Life" />
+        </div>
+        <span class="label">Enter</span>
+      </a>
+
+      <div class="divider" data-div="0"></div>
+
+      <!-- Cell 2 — Crosstrax (not yet live) -->
+      <div class="cell" data-index="1" style="cursor:default;">
+        <div class="logo-wrap">
+          <img src="/CrossTraxW_clean.png" alt="Crosstrax Entertainment" />
+        </div>
+        <span class="label">Coming Soon</span>
+      </div>
+
+      <div class="divider" data-div="1"></div>
+
+      <!-- Cell 3 — Grimnoire Atelier -->
+      <a class="cell" data-index="2" href="https://grimnoireatelier.etsy.com" target="_blank" rel="noopener noreferrer">
+        <div class="logo-wrap">
+          <img src="/grimnoire_atelier_logo_W.png" alt="Grimnoire Atelier" />
+        </div>
+        <span class="label">Shop</span>
+      </a>
+
+    </div>
+
+    <footer>© 2026 This Infernal Studio™. All rights reserved. This Infernal Life™, Crosstrax Entertainment™ and Grimnoire Atelier are trademarks of This Infernal Studio™.</footer>
+
+    <script>
+      const cells = document.querySelectorAll('.cell');
+      const dividers = document.querySelectorAll('.divider');
+
+      cells.forEach((cell, i) => {
+        cell.addEventListener('mouseenter', () => {
+          dividers.forEach(d => d.classList.remove('dim'));
+          if (i > 0) dividers[i - 1].classList.add('dim');
+          if (i < dividers.length) dividers[i].classList.add('dim');
+        });
+        cell.addEventListener('mouseleave', () => {
+          dividers.forEach(d => d.classList.remove('dim'));
+        });
+      });
+    </script>
+
+  </body>
+</html>
