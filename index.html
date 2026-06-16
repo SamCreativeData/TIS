@@ -29,21 +29,18 @@
         padding-bottom: 80px;
       }
 
-      /* ── Wordmark ── */
       .wordmark {
         margin-bottom: clamp(3rem, 8vh, 6rem);
         opacity: 0;
         animation: fadeIn 0.8s ease forwards;
       }
 
-      /* ── Logo row ── */
       .logo-row {
-          display: flex;
-          align-items: stretch;
-          width: min(1200px, 92vw);
-        }
+        display: flex;
+        align-items: stretch;
+        width: min(1200px, 92vw);
+      }
 
-      /* ── Cells ── */
       .cell {
         flex: 1;
         display: flex;
@@ -68,23 +65,26 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: clamp(160px, 24vw, 280px);
+        height: clamp(130px, 22vw, 220px);
+        overflow: hidden;
       }
 
-      .logo-wrap {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: clamp(130px, 22vw, 220px);
-}
+      .logo-wrap img {
+        max-width: 80%;
+        max-height: 80%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        opacity: 0.55;
+        mix-blend-mode: screen;
+        transition: transform 300ms ease, opacity 300ms ease;
+        display: block;
+      }
 
       a.cell:hover .logo-wrap img {
         transform: scale(1.04);
         opacity: 1;
       }
-
-      .cell:nth-child(3) .logo-wrap img { opacity: 0.2; }
 
       .label {
         letter-spacing: 0.3em;
@@ -94,7 +94,6 @@
         color: rgba(255,255,255,0.45);
       }
 
-      /* ── Dividers ── */
       .divider {
         width: 1px;
         align-self: stretch;
@@ -105,7 +104,6 @@
 
       .divider.dim { opacity: 0.2; }
 
-      /* ── Footer ── */
       footer {
         position: fixed;
         bottom: 2rem;
@@ -116,7 +114,6 @@
         color: rgba(255,255,255,0.22);
       }
 
-      /* ── Keyframes ── */
       @keyframes fadeIn {
         to { opacity: 1; }
       }
@@ -130,7 +127,6 @@
 
     <div class="logo-row">
 
-      <!-- Cell 1 — This Infernal Life -->
       <a class="cell" data-index="0" href="https://til-ljn3.bolt.host" target="_blank" rel="noopener noreferrer">
         <div class="logo-wrap">
           <img src="/full_logo_W.png" alt="This Infernal Life" />
@@ -140,17 +136,15 @@
 
       <div class="divider" data-div="0"></div>
 
-      <!-- Cell 2 — Crosstrax -->
-<a class="cell" data-index="1" href="https://crosstrax.thisinfernal.studio" target="_blank" rel="noopener noreferrer">
-  <div class="logo-wrap">
-    <img src="/CrossTraxW_clean.png" alt="Crosstrax Entertainment" />
-  </div>
-  <span class="label">Enter</span>
-</a>
+      <a class="cell" data-index="1" href="https://crosstrax.thisinfernal.studio" target="_blank" rel="noopener noreferrer">
+        <div class="logo-wrap">
+          <img src="/CrossTraxW_clean.png" alt="Crosstrax Entertainment" />
+        </div>
+        <span class="label">Enter</span>
+      </a>
 
       <div class="divider" data-div="1"></div>
 
-      <!-- Cell 3 — Grimnoire Atelier -->
       <a class="cell" data-index="2" href="https://grimnoireatelier.etsy.com" target="_blank" rel="noopener noreferrer">
         <div class="logo-wrap">
           <img src="/grimnoire_atelier_logo_W.png" alt="Grimnoire Atelier" />
